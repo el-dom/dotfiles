@@ -1,0 +1,80 @@
+! urxvt
+
+URxvt*geometry:                115x40
+URxvt*font: xft:Inconsolata:pixelsize=16:antialias=true:hinting=true
+URxvt*boldFont: xft:Inconsolata:bold:pixelsize=16:antialias=false:hinting=true
+xft:Bitstream Vera Sans Mono:pixelsize=16
+URxvt*depth:                24
+URxvt*borderless: 1
+URxvt*scrollBar:            false
+URxvt*saveLines:  4096
+URxvt.transparent:      true
+URxvt*.shading: 10
+
+!! perl extensions
+URxvt.perl-ext:             default,url-select,clipboard,resize-font
+
+! url-select (part of urxvt-perls package)
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.url-select.autocopy:  true
+URxvt.url-select.button:    2
+URxvt.url-select.launcher:  chromium
+URxvt.url-select.underline: true
+
+URxvt.clipboard.copycmd: xsel -ib
+URxvt.clipboard.pastecmd: xsel -b
+URxvt.clipboard.autocopy: true
+
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+
+! disable the stupid ctrl+shift 'feature'
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger: C-Up
+
+!urxvt color scheme:
+URxvt.background: #1c1b1a
+URxvt.foreground: #f8f6f2
+! black
+URxvt.color0: #141413
+URxvt.color8: #000000
+! red
+URxvt.color1: #ff2c4b
+URxvt.color9: #ff2c4b
+! green
+URxvt.color2: #aeee00
+URxvt.color10: #aeee00
+! yellow
+URxvt.color3: #fade3e
+URxvt.color11: #ffa724
+! blue
+URxvt.color4: #0a9dff
+URxvt.color12: #0a9dff
+! magenta
+URxvt.color5: #ff9eb8
+URxvt.color13: #ff9eb8
+! cyan
+URxvt.color6: #8cffba
+URxvt.color14: #8cffba
+! white
+URxvt.color7: #d9cec3
+URxvt.color15: #ffffff
+
+rofi.color-enabled: true
+rofi.color-normal: argb:00000000,  #888888, argb:00000000,  #fff,  #000
+rofi.color-urgent: argb:00000000,  #fff, argb:00000000,  #fff,  #fff
+rofi.color-active: argb:00000000,  #fff, #fff,  #fff,  #fff
+rofi.color-window: #000,  #000, #000
+rofi.width: 100
+rofi.lines: 5
+rofi.columns: 2
+rofi.font: Noto Sans 14
+rofi.bw: 0
+rofi.padding: 400
+rofi.eh: 1
+!rofi.separator-style: solid
+rofi.hide-scrollbar: true
+rofi.sorting-method: normal
