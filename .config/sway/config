@@ -50,10 +50,10 @@ output * bg /usr/share/backgrounds/sway/galaxy.jpg fill
 # resumed. It will also lock your screen before your computer goes to sleep.
 
  exec swayidle -w \
-          timeout 300 'physlock' \
+          timeout 300 'swaylock -f -c 000000' \
           timeout 600 'swaymsg "output * dpms off"' \
                resume 'swaymsg "output * dpms on"' \
-          before-sleep 'physlock'
+          before-sleep 'swaylock -f -c 000000'
 
 ### Input configuration
 #
@@ -84,7 +84,7 @@ input "1241:41110:USB_Keyboard" {
     xkb_variant altgr-intl
 }
 
-exec clipman --selector=rofi -d
+exec wl-paste -t text --watch clipman store 1>> /tmp/clipman.log 2>&1 &
 
 ### Key bindings
 #
@@ -229,7 +229,7 @@ bindsym XF86AudioLowerVolume exec pamixer -d 5
 bindsym XF86AudioRaiseVolume exec pamixer -i 5 --allow-boost
 bindsym XF86AudioMute exec pamixer -t
 
-bindsym Mod1+Ctrl+h exec clipman --selector=rofi -s
+bindsym Mod1+Ctrl+h exec clipman pick --tool="rofi"
 
 #
 # Status Bar:
