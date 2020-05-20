@@ -17,9 +17,6 @@
     "pulseaudio",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
-    "memory",
-    "custom/left-arrow-light",
-    "custom/left-arrow-dark",
     "cpu",
     "custom/left-arrow-light",
     "custom/left-arrow-dark",
@@ -54,12 +51,13 @@
     "format": "",
     "tooltip": false
   },
-
   "sway/workspaces": {
     "disable-scroll": true,
     "format": "{name}"
   },
-
+  "sway/window": {
+    "max-length": 60
+  },
   "clock#1": {
     "format": "{:%a}",
     "tooltip": false
@@ -72,7 +70,16 @@
     "format": "{:%d.%m}",
     "tooltip": false
   },
-
+  "network": {
+    "format": "{bandwidthUpBits} {bandwidthDownBits}",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    "interval":4
+  },
   "pulseaudio": {
     "format": "{icon}  {volume}%",
     "format-bluetooth": "{icon}  {volume}%",
