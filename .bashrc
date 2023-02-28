@@ -66,3 +66,5 @@ function proxy_off(){
 
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
+
+complete -C /usr/bin/vault vault

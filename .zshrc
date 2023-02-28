@@ -70,7 +70,7 @@ export FZF_BASE=/usr/bin/fzf
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf ssh-agent)
+plugins=(fzf ssh-agent)
 
 
 # User configuration
@@ -99,6 +99,8 @@ plugins=(git fzf ssh-agent)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export VAULT_ADDR=https://vault.intern.live.dumontnext.de:443
+
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
@@ -107,6 +109,10 @@ LESS=-FR
 path+=('/home/dom/scripts')
 export PATH
 
+#source /usr/share/nvm/init-nvm.sh
 source $ZSH/oh-my-zsh.sh
 
 alias ssh="TERM=termite ssh"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/vault vault
