@@ -25,7 +25,7 @@
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
 # Change $SCRIPT_DIR to the location of your scripts!
-command=/usr/lib/i3blocks/$BLOCK_NAME
+command=$SCRIPT_DIR/$BLOCK_NAME/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
@@ -34,13 +34,13 @@ markup=none
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
-
 [volume]
-#label=♪
 label=VOL
+#label=♪
+instance=Master
+#instance=PCM
 interval=once
 signal=10
-#STEP=5%
 
 # Memory usage
 #
@@ -63,7 +63,7 @@ interval=30
 # (defaults to 10 for 10%).
 [disk]
 label=HOME
-#DIR=/mnt/data
+#instance=/mnt/data
 interval=30
 
 # Network interface monitoring
@@ -71,19 +71,19 @@ interval=30
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
-#IFACE=wlan0
+#instance=wlan0
 color=#00FF00
 interval=10
 separator=false
 
 [wifi]
-#INTERFACE=wlp3s0
+#instance=wlp3s0
 label=wifi:
 interval=10
 separator=false
 
 [bandwidth]
-#INTERFACE=eth0
+#instance=eth0
 interval=5
 
 # CPU usage
@@ -93,7 +93,7 @@ interval=5
 [cpu_usage]
 label=CPU
 interval=10
-min_width=CPU 100.00%
+min_width=CPU: 100.00%
 #separator=false
 
 [load_average]
@@ -104,19 +104,15 @@ interval=10
 #
 # The battery instance defaults to 0.
 [battery]
-#label=BAT
-label=⚡
+label=BAT
+#label=⚡
+#instance=1
 interval=30
-
-[rofi-calendar]
-interval=3600
-#DATEFTM=+%a. %d. %b. %Y
 
 # Date Time
 #
 [time]
-#command=date '+%Y-%m-%d %H:%M:%S'
-command=date '+%H:%M:%S'
+command=date '+%Y-%m-%d %H:%M:%S'
 interval=5
 
 # Generic media player support
@@ -150,14 +146,11 @@ interval=5
 # bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 #[keyindicator]
-#KEY=CAPS
-#markup=pango
+#instance=CAPS
 #interval=once
 #signal=11
 
 #[keyindicator]
-#KEY=NUM
-#markup=pango
+#instance=NUM
 #interval=once
 #signal=11
-
